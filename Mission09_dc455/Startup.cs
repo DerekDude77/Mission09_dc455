@@ -33,6 +33,8 @@ namespace Mission09_dc455
             {
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
             });
+
+            services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,10 +51,7 @@ namespace Mission09_dc455
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    endpoints.MapDefaultControllerRoute();
-                });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

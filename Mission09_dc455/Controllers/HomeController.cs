@@ -9,16 +9,18 @@ namespace Mission09_dc455.Controllers
 {
     public class HomeController : Controller
     {
-        private BookstoreContext context { get; set; }
+        private IBookstoreRepository repo;
 
-        public HomeController (BookstoreContext temp)
+        public HomeController (IBookstoreRepository temp)
         {
-            context = temp;
+            repo = temp;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var bookList = repo.Books.ToList();
+
+            return View(bookList);
         }
     }
 }
