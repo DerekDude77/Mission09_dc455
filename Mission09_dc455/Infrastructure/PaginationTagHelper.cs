@@ -14,7 +14,7 @@ namespace Mission09_dc455.Infrastructure
 
         private IUrlHelperFactory uhf;
 
-        public PaginationTagHelper(UrlHelperFactory temp)
+        public PaginationTagHelper(IUrlHelperFactory temp)
         {
             uhf = temp;
         }
