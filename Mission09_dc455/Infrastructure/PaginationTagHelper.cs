@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Mission09_dc455.Models.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace Mission09_dc455.Infrastructure
 {
@@ -27,9 +23,11 @@ namespace Mission09_dc455.Infrastructure
         [HtmlAttributeNotBound]
         public ViewContext vc { get; set; }
 
+        public string PageAction { get; set; }
+
         public PageInfo PageModel { get; set; }
 
-        public string PageAction { get; set; }
+
 
         public override void Process(TagHelperContext thc, TagHelperOutput tho)
         {
@@ -37,7 +35,7 @@ namespace Mission09_dc455.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i < PageModel.TotalPages; i++)
+            for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
 
