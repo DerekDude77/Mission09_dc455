@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mission09_dc455.Models;
+using Mission09_dc455.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,26 @@ namespace Mission09_dc455.Controllers
             repo = temp;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pageNum = 1)
         {
-            var bookList = repo.Books.ToList();
+            int pageSize = 10;
 
-            return View(bookList);
+            var x = new BooksViewModel
+            {
+                Books = repo.Books
+                .OrderBy(b => b.Title)
+                .Skip(pageSize * (pageNum - 1))
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            return View(x);
         }
     }
 }
