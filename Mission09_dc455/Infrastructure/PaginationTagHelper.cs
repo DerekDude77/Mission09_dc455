@@ -27,6 +27,7 @@ namespace Mission09_dc455.Infrastructure
 
         public PageInfo PageModel { get; set; }
 
+
         public bool PageClassesEnabled { get; set; } = false;
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
