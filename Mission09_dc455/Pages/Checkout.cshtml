@@ -7,6 +7,11 @@
 
 <h2>Your Cart</h2>
 
+<div class="alert alert-success">
+    <strong>Item successfully added to cart</strong>
+</div>
+
+
 <table class="table table-bordered table-striped">
 
     <thead>
@@ -19,15 +24,15 @@
     </thead>
 
     <tbody>
-        @foreach(var i in Model.cart.Items)
-            {
-                <tr>
-                    <td>@i.Book.Title</td>
-                    <td>@i.Quantity</td>
-                    <td>@i.Book.Price</td>
-                    <td>@(i.Quantity * i.Book.Price)</td>
-                </tr>
-            }
+        @foreach (var i in Model.cart.Items)
+        {
+            <tr>
+                <td>@i.Book.Title</td>
+                <td>@i.Quantity</td>
+                <td>@i.Book.Price.ToString("c")</td>
+                <td>$@(i.Quantity * i.Book.Price)</td>
+            </tr>
+        }
     </tbody>
 
     <tfoot>
@@ -39,5 +44,5 @@
 </table>
 
 <div>
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+    <a class="btn btn-primary" href="@Model.ReturnUrl" title="Good work">Continue Shopping</a>
 </div>
