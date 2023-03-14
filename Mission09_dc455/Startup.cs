@@ -36,6 +36,7 @@ namespace Mission09_dc455
             });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<ICheckoutRepository, EFCheckoutRepository>();
 
             services.AddRazorPages();
 
