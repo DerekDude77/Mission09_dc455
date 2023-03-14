@@ -20,5 +20,6 @@ namespace Mission09_dc455.Models
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Checkout> Checkout { get; set; }
     }
 }
