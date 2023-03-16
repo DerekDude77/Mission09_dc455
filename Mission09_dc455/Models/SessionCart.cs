@@ -37,9 +37,9 @@ namespace Mission09_dc455.Models
             Session.SetJson("Cart", this);
         }
 
-        public override void ClearBasket()
+        public override void ClearCart()
         {
-            base.ClearBasket();
+            base.ClearCart();
             Session.Remove("Cart");
         }
 

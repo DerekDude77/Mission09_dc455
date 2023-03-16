@@ -33,9 +33,11 @@ namespace Mission09_dc455.Controllers
 
             if (ModelState.IsValid)
             {
-                checkout.Items = cart.Items.ToArray();
+                checkout.Lines = cart.Items.ToArray();
                 repo.SaveCheckout(checkout);
-                cart.ClearBasket;
+                cart.ClearCart();
+
+                return RedirectToPage("/PurchaseCompleted");
             }
             else
             {

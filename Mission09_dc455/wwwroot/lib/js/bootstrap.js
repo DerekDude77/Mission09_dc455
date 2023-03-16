@@ -27,20 +27,6 @@
     return Object.freeze(n);
   }
 
-// Get the popup element
-    function showPopup() {
-        const popup = document.querySelector('.popup');
-
-        // Show the popup
-        popup.classList.add('show');
-
-        // Hide the popup after 5 seconds
-        setTimeout(() => {
-            popup.classList.add('hide');
-        }, 5000);
-    }
-
-
   const Popper__namespace = /*#__PURE__*/_interopNamespace(Popper);
 
   /**
